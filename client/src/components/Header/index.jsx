@@ -12,11 +12,14 @@ const Header = () => {
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: '3rem' }}>
-            Tech Friends
+            Narnes and Bobles
           </h1>
         </Link>
         <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          Meet your new programming pals.
+        Totally not a knock off.
+        </p>
+        <p className="m-0" style={{ fontSize: '1.00rem', fontWeight: '700' }}>
+        No really..
         </p>
         <div>
           {Auth.loggedIn() ? (
