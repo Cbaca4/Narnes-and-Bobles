@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Dependency directories
+/jspm_packages/
+/bower_components/
+
+# Webpack
+/dist/
+/.cache/
+/public/
+
+# Server-side build artifacts
+/build/
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# Log files
+*.log
+
+# Render-specific
+/render/
+/render-dist/
