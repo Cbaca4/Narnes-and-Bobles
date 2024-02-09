@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -7,19 +6,28 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <header className="bg-info text-dark mb-4 py-3">
       <div>
         {Auth.loggedIn() ? (
-          <button className="btn btn-lg btn-light m-2" onClick={logout}>
-            Logout
-          </button>
-        ) : (
           <>
-            <Link className="btn btn-lg btn-primary m-2" to="">
+            <Link className="btn btn-lg btn-primary m-2" to="/books">
               Books
             </Link>
-            <Link className="btn btn-lg btn-light m-2" to="">
+            <Link className="btn btn-lg btn-light m-2" to="/music">
+              Music
+            </Link>
+            <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link className="btn btn-lg btn-primary m-2" to="/books">
+              Books
+            </Link>
+            <Link className="btn btn-lg btn-light m-2" to="/music">
               Music
             </Link>
             <Link className="btn btn-lg btn-primary m-2" to="/login">
