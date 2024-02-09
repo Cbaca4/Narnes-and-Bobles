@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const ProfileList = ({ profiles, title }) => {
   if (!profiles.length) {
-    return <h3>No Profiles Yet</h3>;
+    return <h3>No profile created yet</h3>;
   }
 
   return (
@@ -17,7 +17,7 @@ const ProfileList = ({ profiles, title }) => {
                   {profile.name} <br />
                   <span className="text-white" style={{ fontSize: '1rem' }}>
                     currently has {profile.skills ? profile.skills.length : 0}{' '}
-                    points
+                    point
                     {profile.skills && profile.skills.length === 1 ? '' : 's'}
                   </span>
                 </h4>
