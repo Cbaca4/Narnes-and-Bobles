@@ -56,7 +56,7 @@ const SkillForm = ({ profileId }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to view points. Please{' '}
+          You need to be logged in to view your wishlist. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

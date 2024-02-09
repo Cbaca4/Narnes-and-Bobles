@@ -17,7 +17,7 @@ const Home = () => {
           ) : (
             <ProfileList
               profiles={profiles}
-              title="Hello and welcome to your points and rewards!"
+              title="Hello and welcome to your points and wishlist!"
             />
           )}
         </div>
