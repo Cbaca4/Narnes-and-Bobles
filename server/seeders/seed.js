@@ -1,17 +1,25 @@
 const db = require('../config/connection');
-const { Profile } = require('../models');
+const { Profile, Product } = require('../models');
 const profileSeeds = require('./profileSeeds.json');
-const cleanDB = require('./cleanDB');
+const productSeeds = require('./productSeeds.json');
 
 db.once('open', async () => {
   try {
-    await cleanDB('Profile', 'profiles');
-    
-    await Profile.create(profileSeeds);
+    // Clear existing profiles and products
+    await Profile.deleteMany();
+    await Product.deleteMany();
 
-    console.log('all done!');
+    // Seed profiles
+    await Profile.create(profileSeeds);
+    console.log('Profiles seeded successfully');
+
+    // Seed products
+    await Product.create(productSeeds);
+    console.log('Products seeded successfully');
+
     process.exit(0);
   } catch (err) {
-    throw err;
+    console.error('Error seeding database:', err);
+    process.exit(1);
   }
 });

@@ -7,6 +7,23 @@ const typeDefs = `
     skills: [String]!
   }
 
+  type Product {
+    _id: ID!
+    name: String!
+    description: String!
+    image: String!
+    price: Float!
+    quantity: Int!
+  }
+
+  input ProductInput {
+    name: String!
+    description: String!
+    image: String!
+    price: Float!
+    quantity: Int!
+  }
+
   type Auth {
     token: ID!
     profile: Profile
@@ -15,6 +32,9 @@ const typeDefs = `
   type Query {
     profiles: [Profile]!
     profile(profileId: ID!): Profile
+
+    getAllProducts: [Product]
+    getProductById(productId: ID!): Product
   }
 
   type Mutation {
@@ -24,6 +44,10 @@ const typeDefs = `
     addSkill(profileId: ID!, skill: String!): Profile
     removeProfile(profileId: ID!): Profile
     removeSkill(profileId: ID!, skill: String!): Profile
+
+    createProduct(input: ProductInput!): Product
+    updateProduct(productId: ID!, input: ProductInput!): Product
+    deleteProduct(productId: ID!): Product
   }
 `;
 
