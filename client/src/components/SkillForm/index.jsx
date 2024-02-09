@@ -27,7 +27,7 @@ const SkillForm = ({ profileId }) => {
 
   return (
     <div>
-      <h4>Search for rewards below.</h4>
+      <h4>Create a Wishlist</h4>
 
       {Auth.loggedIn() ? (
         <form
@@ -36,7 +36,7 @@ const SkillForm = ({ profileId }) => {
         >
           <div className="col-12 col-lg-9">
             <input
-              placeholder="Endorse some skills..."
+              placeholder="add to your wishlist..."
               value={skill}
               className="form-input w-100"
               onChange={(event) => setSkill(event.target.value)}
@@ -45,7 +45,7 @@ const SkillForm = ({ profileId }) => {
 
           <div className="col-12 col-lg-3">
             <button className="btn btn-info btn-block py-3" type="submit">
-              Check Rewards
+              Check Wishlist
             </button>
           </div>
           {error && (
