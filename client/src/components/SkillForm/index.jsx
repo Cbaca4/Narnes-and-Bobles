@@ -27,7 +27,11 @@ const SkillForm = ({ profileId }) => {
 
   return (
     <div>
+<<<<<<< HEAD
       <h4>Search for wishlist items.</h4>
+=======
+      <h4>Create a Wishlist</h4>
+>>>>>>> origin
 
       {Auth.loggedIn() ? (
         <form
@@ -36,7 +40,11 @@ const SkillForm = ({ profileId }) => {
         >
           <div className="col-12 col-lg-9">
             <input
+<<<<<<< HEAD
               placeholder="Search for items..."
+=======
+              placeholder="add to your wishlist..."
+>>>>>>> origin
               value={skill}
               className="form-input w-100"
               onChange={(event) => setSkill(event.target.value)}
@@ -45,7 +53,11 @@ const SkillForm = ({ profileId }) => {
 
           <div className="col-12 col-lg-3">
             <button className="btn btn-info btn-block py-3" type="submit">
+<<<<<<< HEAD
               Search
+=======
+              Check Wishlist
+>>>>>>> origin
             </button>
           </div>
           {error && (
