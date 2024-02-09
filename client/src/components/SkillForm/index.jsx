@@ -27,7 +27,7 @@ const SkillForm = ({ profileId }) => {
 
   return (
     <div>
-      <h4>Search for rewards below.</h4>
+      <h4>Search for wishlist items.</h4>
 
       {Auth.loggedIn() ? (
         <form
@@ -36,7 +36,7 @@ const SkillForm = ({ profileId }) => {
         >
           <div className="col-12 col-lg-9">
             <input
-              placeholder="Endorse some skills..."
+              placeholder="Search for items..."
               value={skill}
               className="form-input w-100"
               onChange={(event) => setSkill(event.target.value)}
@@ -45,7 +45,7 @@ const SkillForm = ({ profileId }) => {
 
           <div className="col-12 col-lg-3">
             <button className="btn btn-info btn-block py-3" type="submit">
-              Check Rewards
+              Search
             </button>
           </div>
           {error && (
@@ -56,7 +56,7 @@ const SkillForm = ({ profileId }) => {
         </form>
       ) : (
         <p>
-          You need to be logged in to view points. Please{' '}
+          You need to be logged in to view your wishlist. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
