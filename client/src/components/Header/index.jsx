@@ -8,35 +8,41 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
+    <header className="bg-info text-dark mb-4 py-3">
+      <div>
+        {Auth.loggedIn() ? (
+          <button className="btn btn-lg btn-light m-2" onClick={logout}>
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link className="btn btn-lg btn-primary m-2" to="">
+              Books
+            </Link>
+            <Link className="btn btn-lg btn-light m-2" to="">
+              Music
+            </Link>
+            <Link className="btn btn-lg btn-primary m-2" to="/login">
+              Login
+            </Link>
+            <Link className="btn btn-lg btn-light m-2" to="/signup">
+              Signup
+            </Link>
+          </>
+        )}
+      </div>
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
+          <h1 className="m-0" style={{ fontSize: "3rem" }}>
             Narnes and Bobles
           </h1>
         </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-        Totally not a knock off.
+        <p className="m-0" style={{ fontSize: "1.75rem", fontWeight: "700" }}>
+          Totally not a knock off.
         </p>
-        <p className="m-0" style={{ fontSize: '1.00rem', fontWeight: '700' }}>
-        No really..
+        <p className="m-0" style={{ fontSize: "1.00rem", fontWeight: "700" }}>
+          No really..
         </p>
-        <div>
-          {Auth.loggedIn() ? (
-            <button className="btn btn-lg btn-light m-2" onClick={logout}>
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
       </div>
     </header>
   );
