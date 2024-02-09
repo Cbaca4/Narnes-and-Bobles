@@ -1,4 +1,4 @@
-const { Profile } = require('../models');
+const { Profile, Product } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -10,6 +10,29 @@ const resolvers = {
     profile: async (parent, { profileId }) => {
       return Profile.findOne({ _id: profileId });
     },
+
+    // Resolver to get all products
+    getAllProducts: async () => {
+      try {
+        const products = await Product.find();
+        return products;
+      } catch (error) {
+        throw new Error('Error fetching products');
+      }
+    },
+
+    // Resolver to get a single product by ID
+    getProductById: async (_, { productId }) => {
+      try {
+        const product = await Product.findById(productId);
+        if (!product) {
+          throw new Error('Product not found');
+        }
+        return product;
+      } catch (error) {
+        throw new Error('Error fetching product');
+      }
+    },
   },
 
   Mutation: {
@@ -19,6 +42,7 @@ const resolvers = {
 
       return { token, profile };
     },
+
     login: async (parent, { email, password }) => {
       const profile = await Profile.findOne({ email });
 
@@ -48,15 +72,55 @@ const resolvers = {
         }
       );
     },
+
     removeProfile: async (parent, { profileId }) => {
       return Profile.findOneAndDelete({ _id: profileId });
     },
+
     removeSkill: async (parent, { profileId, skill }) => {
       return Profile.findOneAndUpdate(
         { _id: profileId },
         { $pull: { skills: skill } },
         { new: true }
       );
+    },
+
+    // Resolver to create a new product
+    createProduct: async (_, { input }) => {
+      try {
+        const product = await Product.create(input);
+        return product;
+      } catch (error) {
+        throw new Error('Error creating product');
+      }
+    },
+
+    // Resolver to update a product by ID
+    updateProduct: async (_, { productId, input }) => {
+      try {
+        const product = await Product.findByIdAndUpdate(productId, input, {
+          new: true,
+        });
+        if (!product) {
+          throw new Error('Product not found');
+        }
+        return product;
+      } catch (error) {
+        throw new Error('Error updating product');
+      }
+    },
+
+    // Resolver to delete a product by ID
+    deleteProduct: async (_, { productId }) => {
+      try {
+        const product = await Product.findByIdAndDelete(productId);
+        if (!product) {
+          throw new Error('Product not found');
+        }
+        return product;
+      } catch (error) {
+        throw new Error('Error deleting product');
+      }
     },
   },
 };
