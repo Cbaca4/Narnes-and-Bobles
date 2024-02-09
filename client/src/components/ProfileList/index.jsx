@@ -17,7 +17,7 @@ const ProfileList = ({ profiles, title }) => {
                   {profile.name} <br />
                   <span className="text-white" style={{ fontSize: '1rem' }}>
                     currently has {profile.skills ? profile.skills.length : 0}{' '}
-                    endorsed skill
+                    points
                     {profile.skills && profile.skills.length === 1 ? '' : 's'}
                   </span>
                 </h4>
@@ -26,11 +26,11 @@ const ProfileList = ({ profiles, title }) => {
                   className="btn btn-block btn-squared btn-light text-dark"
                   to={`/profiles/${profile._id}`}
                 >
-                  View and endorse their skills.
+                  View points and rewards.
                 </Link>
               </div>
             </div>
-          ))}
+          ))} 
       </div>
     </div>
   );
