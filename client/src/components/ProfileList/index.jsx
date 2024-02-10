@@ -17,7 +17,7 @@ const ProfileList = ({ profiles, title }) => {
                   {profile.name} <br />
                   <span className="text-white" style={{ fontSize: '1rem' }}>
                     currently has {profile.skills ? profile.skills.length : 0}{' '}
-                    point
+                    wishlist items
                     {profile.skills && profile.skills.length === 1 ? '' : 's'}
                   </span>
                 </h4>

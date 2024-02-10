@@ -1,6 +1,6 @@
 const SkillsList = ({ skills }) => {
   if (!skills.length) {
-    return <h3>No Points Yet</h3>;
+    return <h3>No wishlist items yet</h3>;
   }
 
   return (
