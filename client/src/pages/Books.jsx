@@ -42,7 +42,7 @@ const Music = () => {
 
   return (
     <div>
-      <h1>Music Page</h1>
+      <h1>Books Page</h1>
       <div className="product-list">
         {data.getAllProducts.map((product) => (
           <div key={product._id} className="product">
