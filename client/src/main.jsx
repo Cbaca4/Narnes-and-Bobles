@@ -7,6 +7,8 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import ErrorPage from './pages/Error';
+import Music from './pages/Music.jsx';
+import Books from './pages/Books.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       }, {
         path: '/profiles/:profileId',
         element: <Profile />
+      },
+      {
+        path: '/music',
+        element: <Music />
+      },
+      {
+        path: '/books',
+        element: <Books />
       }
     ]
   },
